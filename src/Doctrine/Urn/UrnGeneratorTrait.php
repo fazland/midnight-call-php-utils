@@ -24,6 +24,6 @@ trait UrnGeneratorTrait
         $shortName = (new \ReflectionClass($className))->getShortName();
         $normalizedName = \strtolower(\preg_replace('~(?<=\\w)([A-Z])~', '-$1', $shortName));
 
-        return "urn:sicuro:$normalizedName:$this->id";
+        return "urn:%s:$normalizedName:$this->id";
     }
 }

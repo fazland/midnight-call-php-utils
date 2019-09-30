@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MidnightCall\Utils\Tests\Constraint;
+namespace MidnightCall\Utils\Constraint;
 
 use MidnightCall\Utils\Json;
 use PHPUnit\Framework\Constraint\Constraint;

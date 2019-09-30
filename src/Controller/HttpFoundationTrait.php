@@ -1,8 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace MidnightCall\Utils\Tests\Controller;
+namespace MidnightCall\Utils\Controller;
 
 use MidnightCall\Utils\Json;
+use MidnightCall\Utils\Constraint\JsonResponse;
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\IsFalse;
@@ -13,7 +14,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PropertyAccess\Exception\AccessException;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
-use Tests\Constraint\JsonResponse;
 
 trait HttpFoundationTrait
 {
@@ -27,12 +27,14 @@ trait HttpFoundationTrait
     /**
      * Creates a Client.
      *
+     * Do not specify a return type. This method is inherited from {@see Symfony\Bundle\FrameworkBundle\Test\WebTestCase::createClient()}.
+     *
      * @param array $options An array of options to pass to the createKernel class
      * @param array $server  An array of server parameters
      *
      * @return KernelBrowser A KernelBrowser instance
      */
-    abstract protected static function createClient(array $options = [], array $server = []): KernelBrowser;
+    abstract protected static function createClient(array $options = [], array $server = []);
 
     /**
      * Retrieves a valid access token.

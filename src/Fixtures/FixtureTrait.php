@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MidnightCall\Utils\Tests\Fixtures\ORM;
+namespace MidnightCall\Utils\Fixtures;
 
 use Fazland\ApiPlatformBundle\Form\DataTransformer\Base64ToUploadedFileTransformer;
 use Ramsey\Uuid\Uuid;
@@ -73,7 +73,7 @@ HTML;
      */
     private function getGifImagePath(): string
     {
-        return __DIR__.'/Assets/Images/test.gif';
+        return __DIR__.'/../../tests/Fixtures/Assets/Images/test.gif';
     }
 
     /**
@@ -83,7 +83,7 @@ HTML;
      */
     private function getPngImagePath(): string
     {
-        return __DIR__.'/Assets/Images/test.png';
+        return __DIR__.'/../../tests/Fixtures/Assets/Images/test.png';
     }
 
     /**

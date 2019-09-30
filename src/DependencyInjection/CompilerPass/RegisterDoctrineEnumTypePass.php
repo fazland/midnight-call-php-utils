@@ -5,6 +5,7 @@ namespace MidnightCall\Utils\DependencyInjection\CompilerPass;
 use MidnightCall\Utils\Doctrine\ConnectionFactory;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 
 final class RegisterDoctrineEnumTypePass implements CompilerPassInterface
@@ -32,10 +33,10 @@ final class RegisterDoctrineEnumTypePass implements CompilerPassInterface
             $container->removeDefinition($serviceId);
         }
 
-        $container->getDefinition(ConnectionFactory::class)
-            ->addMethodCall('setEnums', [$types])
-        ;
+        $definition = new Definition(ConnectionFactory::class, [new Reference('doctrine.dbal.connection_factory')]);
+        $definition->addMethodCall('setEnums', [$types]);
 
+        $container->setDefinition(ConnectionFactory::class, $definition);
         $container->findDefinition('doctrine.dbal.connection')
             ->setFactory([new Reference(ConnectionFactory::class), 'createConnection'])
         ;

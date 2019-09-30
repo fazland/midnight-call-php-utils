@@ -10,6 +10,11 @@ class UrnWalker extends ValidationWalker
     /**
      * @var string
      */
+    private $urnPattern;
+
+    /**
+     * @var string
+     */
     private $resourceType;
 
     /**
@@ -17,8 +22,9 @@ class UrnWalker extends ValidationWalker
      *
      * @param string $resourceType
      */
-    public function __construct(string $resourceType)
+    public function __construct(string $urnPattern, string $resourceType)
     {
+        $this->urnPattern = $urnPattern;
         $this->resourceType = $resourceType;
     }
 
@@ -27,12 +33,11 @@ class UrnWalker extends ValidationWalker
      */
     public function walkLiteral(LiteralExpression $expression)
     {
-        $pattern = "/^urn:sicuro:$this->resourceType:[0-9a-z-]+$/";
-        if (! \preg_match($pattern, (string) $expression)) {
+        if (! \preg_match($this->urnPattern, (string) $expression)) {
             $this->addViolation('"{{ value }}" is not a valid {{ resource_type }} urn. The urn format is "{{ urn_format }}"', [
                 '{{ value }}' => (string) $expression,
                 '{{ resource_type }}' => $this->resourceType,
-                '{{ urn_format }}' => $pattern,
+                '{{ urn_format }}' => $this->urnPattern,
             ]);
         }
     }
