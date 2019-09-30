@@ -1,0 +1,70 @@
+{
+    "name": "midnight-call/utils",
+    "license": "proprietary",
+    "description": "MidnightCall srl utilities",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Massimiliano Braglia",
+            "email": "massimiliano.braglia@fazland.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "fazland/api-platform-bundle": "dev-master",
+        "fazland/doctrine-extra": "dev-master",
+        "fazland/dto-management-bundle": "dev-master",
+        "giggsey/libphonenumber-for-php": "^8.10",
+        "moneyphp/money": "^3.2",
+        "myclabs/php-enum": "^1.7",
+        "ramsey/uuid-doctrine": "^1.5",
+        "sensio/framework-extra-bundle": "^5.2",
+        "sentry/sentry-symfony": "^2.3",
+        "symfony/console": "*",
+        "symfony/expression-language": "*",
+        "symfony/flex": "^1.1",
+        "symfony/form": "*",
+        "symfony/framework-bundle": "*",
+        "symfony/messenger": "*",
+        "symfony/monolog-bundle": "^3.3",
+        "symfony/orm-pack": "^1.0",
+        "symfony/security-bundle": "*",
+        "symfony/serializer": "*",
+        "symfony/swiftmailer-bundle": "^3.2",
+        "symfony/validator": "*",
+        "symfony/yaml": "*"
+    },
+    "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.0",
+        "friendsofphp/php-cs-fixer": "^2.13",
+        "phpunit/phpunit": "^7.5",
+        "symfony/browser-kit": "*",
+        "symfony/debug-pack": "^1.0",
+        "symfony/dom-crawler": "*",
+        "symfony/dotenv": "*",
+        "symfony/phpunit-bridge": "*",
+        "symfony/profiler-pack": "^1.0",
+        "symfony/test-pack": "^1.0",
+        "symfony/var-dumper": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "MidnightCall\\Utils\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MidnightCall\\Utils\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true,
+            "require": "4.3.*"
+        }
+    }
+}

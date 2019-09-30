@@ -1,0 +1,26 @@
+stages:
+    - test
+
+test:
+    image: fazland/ci-images:php-7.3-fpm
+    stage: test
+    services:
+        - name: fazland/ci-images:postgres11
+          alias: postgres
+    cache:
+        key: ${CI_COMMIT_REF_SLUG}
+        paths:
+            - ./vendor
+            - ./bin/.phpunit
+    artifacts:
+        reports:
+            junit: junit.xml
+    script:
+        - echo "memory_limit=512M" >> /usr/local/etc/php/php.ini
+
+        - cp .env.dist .env
+        - composer install --no-progress
+        - if [ -n "${COVERAGE}" ]; then pecl install xdebug && docker-php-ext-enable xdebug ; fi
+        - if [ -n "${COVERAGE}" ]; then make test PHPUNIT_FLAGS="--coverage-text --colors=never --log-junit junit.xml" ; else make test PHPUNIT_FLAGS="--log-junit junit.xml" ; fi
+    tags:
+        - php
