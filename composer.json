@@ -1,6 +1,6 @@
 {
     "name": "midnight-call/utils",
-    "license": "proprietary",
+    "license": "MIT",
     "description": "MidnightCall srl utilities",
     "type": "library",
     "authors": [
