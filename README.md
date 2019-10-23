@@ -19,4 +19,4 @@ Contributions are welcome. Feel free to open a PR or file an issue here on GitHu
 
 License
 -------
-MailUp Rest Client is licensed under the MIT License - see the [LICENSE](https://github.com/fazland/midnight-call-php-utils/blob/master/LICENSE) file for details
+The MidnightCall Srl PHP Utils are licensed under the MIT License - see the [LICENSE](https://github.com/fazland/midnight-call-php-utils/blob/master/LICENSE) file for details
