@@ -1,7 +1,7 @@
 MidnightCall Srl PHP Utils
 ==========================
 
-<!--[![Build Status](https://travis-ci.org/fazland/mailup-rest-client.svg?branch=master)](https://travis-ci.org/fazland/mailup-rest-client) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/fazland/mailup-rest-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/fazland/mailup-rest-client/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/fazland/mailup-rest-client/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/fazland/mailup-rest-client/?branch=master)-->
+[![Build Status](https://travis-ci.com/fazland/midnight-call-php-utils.svg?branch=master)](https://travis-ci.com/fazland/midnight-call-php-utils)
 
 Just a set of PHP Utils
 
