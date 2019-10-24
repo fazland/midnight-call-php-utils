@@ -1,0 +1,18 @@
+language: php
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+php:
+  - '7.3'
+
+matrix:
+  fast_finish: true
+
+before_install:
+  - composer self-update
+
+install: composer update --prefer-dist
+
+script: vendor/bin/phpunit --coverage-clover=coverage.clover
