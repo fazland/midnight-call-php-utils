@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Model;
+namespace MidnightCall\Utils\Model;
 
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
