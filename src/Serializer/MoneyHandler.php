@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Serializer;
+namespace MidnightCall\Utils\Serializer;
 
 use Kcs\Serializer\Context;
 use Kcs\Serializer\Direction;
