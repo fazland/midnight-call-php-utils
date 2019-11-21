@@ -486,6 +486,11 @@ trait HttpFoundationTrait
         self::assertResponseIs(Response::HTTP_PRECONDITION_FAILED, $response);
     }
 
+    public static function assertResponseIsNotImplemented(Response $response): void
+    {
+        self::assertResponseIs(Response::HTTP_NOT_IMPLEMENTED, $response);
+    }
+
     /**
      * Returns a valid property accessor.
      *

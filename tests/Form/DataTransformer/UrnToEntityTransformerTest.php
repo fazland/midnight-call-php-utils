@@ -63,9 +63,9 @@ class UrnToEntityTransformerTest extends TestCase
     /**
      * @dataProvider emptyValues
      */
-    public function testReverseTransformShouldReturnNullOnNullValues($value): void
+    public function testReverseTransformShouldReturnNullOnEmptyValues($value): void
     {
-        $this->entityRepository->findOneBy(Argument::cetera())->shouldNotBeCalled();
+        $this->entityRepository->find(Argument::cetera())->shouldNotBeCalled();
 
         self::assertNull($this->transformer->reverseTransform($value));
     }

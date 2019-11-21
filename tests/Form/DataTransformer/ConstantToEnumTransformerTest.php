@@ -31,7 +31,7 @@ class ConstantToEnumTransformerTest extends TestCase
     /**
      * @dataProvider emptyValues
      */
-    public function testReverseTransformShouldReturnNullOnNullValues($value): void
+    public function testReverseTransformShouldReturnNullOnEmptyValues($value): void
     {
         self::assertNull($this->transformer->reverseTransform($value));
     }
