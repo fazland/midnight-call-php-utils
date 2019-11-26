@@ -2,8 +2,8 @@
 
 namespace MidnightCall\Utils\Controller;
 
-use MidnightCall\Utils\Json;
 use MidnightCall\Utils\Constraint\JsonResponse;
+use MidnightCall\Utils\Json;
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\Constraint\IsEqual;
 use PHPUnit\Framework\Constraint\IsFalse;

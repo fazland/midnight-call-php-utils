@@ -64,11 +64,10 @@ final class PreciseMoneyTest extends TestCase
         self::assertTrue($currency->equals(new Currency(self::CURRENCY)));
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testItThrowsAnExceptionWhenAmountIsNotNumeric(): void
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         new PreciseMoney('ONE', new Currency(self::CURRENCY));
     }
 
@@ -122,11 +121,10 @@ final class PreciseMoneyTest extends TestCase
         self::assertTrue($this->money->lessThanOrEqual($other));
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testThrowsWhenCurrencyIsDifferentDuringComparison(): void
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         $this->calculator->compare(Argument::type('string'), Argument::type('string'))->shouldNotBeCalled();
         $this->money->compare(new PreciseMoney(self::AMOUNT + 1, new Currency(self::OTHER_CURRENCY)));
     }
@@ -140,11 +138,10 @@ final class PreciseMoneyTest extends TestCase
         self::assertEquals((string) $result, $money->getAmount());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testThrowsAnExceptionWhenCurrencyIsDifferentDuringAddition(): void
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         $this->calculator->add(Argument::type('string'), Argument::type('string'))->shouldNotBeCalled();
         $this->money->add(new PreciseMoney(self::AMOUNT, new Currency(self::OTHER_CURRENCY)));
     }
@@ -160,11 +157,10 @@ final class PreciseMoneyTest extends TestCase
         self::assertEquals((string) $result, $money->getAmount());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testThrowsAnExceptionWhenCurrencyIsDifferentDuringsubtractition(): void
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         $this->calculator->subtract(Argument::type('string'), Argument::type('string'))->shouldNotBeCalled();
         $this->money->subtract(new PreciseMoney(self::AMOUNT, new Currency(self::OTHER_CURRENCY)));
     }
@@ -182,11 +178,10 @@ final class PreciseMoneyTest extends TestCase
         self::assertEquals('5', $money->getAmount());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testItThrowsAnExceptionWhenOperandIsInvalidDuringMultiplication(): void
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         $this->calculator->multiply(Argument::type('string'), Argument::type('numeric'))->shouldNotBeCalled();
         $this->calculator->round(Argument::type('string'), Argument::type('integer'))->shouldNotBeCalled();
 
@@ -207,11 +202,10 @@ final class PreciseMoneyTest extends TestCase
         self::assertEquals('2', $money->getAmount());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testItThrowsAnExceptionWhenOperandIsInvalidDuringDivision(): void
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         $this->calculator->compare(Argument::type('string'), Argument::type('string'))->shouldNotBeCalled();
         $this->calculator->divide(Argument::type('string'), Argument::type('numeric'))->shouldNotBeCalled();
         $this->calculator->round(Argument::type('string'), Argument::type('integer'))->shouldNotBeCalled();
@@ -219,11 +213,10 @@ final class PreciseMoneyTest extends TestCase
         $this->money->divide('INVALID_OPERAND');
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testItThrowsAnExceptionWhenDivisorIsZero(): void
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         $this->calculator->compare(0, '0')->willThrow(\InvalidArgumentException::class);
         $this->calculator->divide(Argument::type('string'), Argument::type('numeric'))->shouldNotBeCalled();
         $this->calculator->round(Argument::type('string'), Argument::type('integer'))->shouldNotBeCalled();
@@ -290,35 +283,31 @@ final class PreciseMoneyTest extends TestCase
         self::assertEqualAllocation($allocated, [8, 7]);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testThrowsWhenAllocationTargetIsNegative(): void
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         $this->money->allocateTo(-1);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testThrowsWhenAllocationTargetIsEmpty(): void
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         $this->money->allocate([]);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testThrowsWhenAllocationRatioIsNegative(): void
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         $this->money->allocate([-1]);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testThrowsWhenAllocationTotalIsZero(): void
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         $this->money->allocate([0, 0]);
     }
 
