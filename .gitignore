@@ -4,6 +4,9 @@
 coverage/
 junit.xml
 
+composer.lock
+symfony.lock
+
 public/data/
 
 ###> symfony/framework-bundle ###
