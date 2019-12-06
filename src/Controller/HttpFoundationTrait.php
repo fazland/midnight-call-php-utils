@@ -15,6 +15,9 @@ use Symfony\Component\PropertyAccess\Exception\AccessException;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 
+/**
+ * @method static void ensureKernelShutdown()
+ */
 trait HttpFoundationTrait
 {
     /**
@@ -27,7 +30,8 @@ trait HttpFoundationTrait
     /**
      * Creates a Client.
      *
-     * Do not specify a return type. This method is inherited from {@see Symfony\Bundle\FrameworkBundle\Test\WebTestCase::createClient()}.
+     * Do not specify a return type.
+     * This method is inherited from {@see \Symfony\Bundle\FrameworkBundle\Test\WebTestCase::createClient()}.
      *
      * @param array $options An array of options to pass to the createKernel class
      * @param array $server  An array of server parameters
@@ -192,6 +196,8 @@ trait HttpFoundationTrait
         if (null !== $accessToken) {
             $headers['HTTP_AUTHORIZATION'] = "Bearer $accessToken";
         }
+
+        self::ensureKernelShutdown();
 
         self::$client = static::createClient();
         self::$client->request($method, $url, [], [], $headers, null !== $requestData ? \json_encode($requestData) : null);
