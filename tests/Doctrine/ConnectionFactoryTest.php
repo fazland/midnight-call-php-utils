@@ -49,23 +49,30 @@ class ConnectionFactoryTest extends TestCase
      */
     protected function tearDown(): void
     {
-        $enumClass = FooBarEnum::class;
-        if (Type::hasType($enumClass)) {
-            Type::overrideType($enumClass, null);
-        }
-
-        if (Type::hasType("array<$enumClass>")) {
-            Type::overrideType("array<$enumClass>", null);
-        }
-
         $reflection = new \ReflectionClass(Type::class);
-        $property = $reflection->getProperty('_typesMap');
-        $property->setAccessible(true);
+        if ($reflection->hasProperty('typeRegistry')) {
+            $property = $reflection->getProperty('typeRegistry');
+            $property->setAccessible(true);
+            $property->setValue(null, null);
+        } else {
+            $enumClass = FooBarEnum::class;
+            if (Type::hasType($enumClass)) {
+                Type::overrideType($enumClass, null);
+            }
 
-        $value = $property->getValue(null);
-        unset($value[$enumClass], $value["array<$enumClass>"]);
+            if (Type::hasType("array<$enumClass>")) {
+                Type::overrideType("array<$enumClass>", null);
+            }
 
-        $property->setValue(null, $value);
+            $reflection = new \ReflectionClass(Type::class);
+            $property = $reflection->getProperty('_typesMap');
+            $property->setAccessible(true);
+
+            $value = $property->getValue(null);
+            unset($value[$enumClass], $value["array<$enumClass>"]);
+
+            $property->setValue(null, $value);
+        }
     }
 
     public function testCreateConnectionShouldRegisterEnumTypes(): void
