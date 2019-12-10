@@ -11,10 +11,6 @@ final class Base64
     /**
      * Encodes data to base64.
      * Throws an Exception on failure.
-     *
-     * @param string $data
-     *
-     * @return string
      */
     public static function encode(string $data): string
     {
@@ -29,10 +25,6 @@ final class Base64
     /**
      * Decodes data from base64.
      * Throws an Exception on failure.
-     *
-     * @param string $encoded
-     *
-     * @return string
      */
     public static function decode(string $encoded): string
     {
@@ -47,10 +39,6 @@ final class Base64
     /**
      * Encodes data to base64 and replaces url-unsafe characters.
      * Throws an Exception on failure.
-     *
-     * @param string $data
-     *
-     * @return string
      */
     public static function urlEncode(string $data): string
     {
@@ -63,10 +51,6 @@ final class Base64
     /**
      * Decodes data from url-safe-base64.
      * Throws an Exception on failure.
-     *
-     * @param string $encoded
-     *
-     * @return string
      */
     public static function urlDecode(string $encoded): string
     {

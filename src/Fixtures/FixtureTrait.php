@@ -12,9 +12,7 @@ trait FixtureTrait
     /**
      * Sets the id property on the target object.
      *
-     * @param object               $target
      * @param UuidInterface|string $id
-     * @param string|null          $targetScope
      */
     private function setId(object $target, $id, ?string $targetScope = null): void
     {
@@ -27,10 +25,6 @@ trait FixtureTrait
 
     /**
      * Sets the properties on the target object.
-     *
-     * @param object      $target
-     * @param array       $properties
-     * @param string|null $targetScope
      */
     private function setProperties(object $target, array $properties, ?string $targetScope = null): void
     {
@@ -45,8 +39,6 @@ trait FixtureTrait
 
     /**
      * Gets a lorem ipsum description.
-     *
-     * @return string
      */
     private function getDescription(): string
     {
@@ -68,8 +60,6 @@ HTML;
 
     /**
      * Gets the fixture gif image file path.
-     *
-     * @return string
      */
     private function getGifImagePath(): string
     {
@@ -78,8 +68,6 @@ HTML;
 
     /**
      * Gets the fixture png image file path.
-     *
-     * @return string
      */
     private function getPngImagePath(): string
     {
@@ -88,8 +76,6 @@ HTML;
 
     /**
      * Gets the fixture gif image content.
-     *
-     * @return string
      */
     private function getGifImage(): string
     {
@@ -98,8 +84,6 @@ HTML;
 
     /**
      * Gets the fixture png image content.
-     *
-     * @return string
      */
     private function getPngImage(): string
     {
@@ -108,8 +92,6 @@ HTML;
 
     /**
      * Gets the fixture gif image as data uri.
-     *
-     * @return string
      */
     private function getGifDataUri(): string
     {
@@ -118,8 +100,6 @@ HTML;
 
     /**
      * Gets the fixture png image as data uri.
-     *
-     * @return string
      */
     private function getPngDataUri(): string
     {
@@ -128,8 +108,6 @@ HTML;
 
     /**
      * Gets the image as data uri.
-     *
-     * @return string
      */
     private function getImageDataUri(string $filePath): string
     {
@@ -143,8 +121,6 @@ HTML;
 
     /**
      * Gets a random string generated from a Uuid.
-     *
-     * @return string
      */
     private function getRandomString(): string
     {

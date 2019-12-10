@@ -10,10 +10,6 @@ class StringUtils
 
     /**
      * Slugifies a string.
-     *
-     * @param string $word
-     *
-     * @return string
      */
     public static function slugify(string $word): string
     {

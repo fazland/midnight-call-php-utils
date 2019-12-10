@@ -10,9 +10,6 @@ class Client extends SentrySymfonyClient
 {
     private ?RequestStack $requestStack;
 
-    /**
-     * @param RequestStack $requestStack
-     */
     public function setRequestStack(RequestStack $requestStack): void
     {
         $this->requestStack = $requestStack;

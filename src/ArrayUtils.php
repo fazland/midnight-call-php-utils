@@ -11,11 +11,6 @@ final class ArrayUtils
     {
     }
 
-    /**
-     * @param array $input
-     *
-     * @return array
-     */
     public static function permutations(array $input): array
     {
         $args = \func_get_args();
@@ -41,23 +36,11 @@ final class ArrayUtils
         return $return;
     }
 
-    /**
-     * @param array $array
-     *
-     * @return bool
-     */
     public static function isAssoc(array $array): bool
     {
         return \array_keys($array) !== \array_keys(\array_values($array));
     }
 
-    /**
-     * @param array  $array
-     * @param string $targetKey
-     * @param string $order
-     *
-     * @return array
-     */
     public static function sortByKey(array $array, string $targetKey, string $order = self::ASC): array
     {
         $newArray = [];
@@ -96,11 +79,6 @@ final class ArrayUtils
 
     /**
      * Recursively filters a multi-dimensional array.
-     *
-     * @param array         $array
-     * @param callable|null $callback
-     *
-     * @return array
      */
     public static function filterRecursive(array $array, ?callable $callback = null): array
     {

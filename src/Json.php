@@ -11,9 +11,6 @@ final class Json
     /**
      * Decodes a JSON string into an object/array.
      *
-     * @param string $json
-     * @param bool   $associative
-     *
      * @return mixed
      */
     public static function decode(string $json, bool $associative = true)

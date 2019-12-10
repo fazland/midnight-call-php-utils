@@ -32,11 +32,7 @@ class ConstantToEnumTransformer extends AbstractOneWayDataTransformer
         $this->assertString($value);
 
         if (! $this->enumClass::isValid($value)) {
-            throw new TransformationFailedException(\sprintf(
-                'Invalid %s type. Got "%s".',
-                $this->enumClass,
-                $value
-            ));
+            throw new TransformationFailedException(\sprintf('Invalid %s type. Got "%s".', $this->enumClass, $value));
         }
 
         $target = $this->enumClass::search($value);

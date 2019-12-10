@@ -36,7 +36,6 @@ trait ListHandlerTrait
     {
         $processor = $this->prepareProcessor();
 
-
         /** @var ObjectIteratorInterface|FormInterface $result */
         $result = $processor->processRequest($request);
         if (! $result instanceof ObjectIteratorInterface) {
@@ -48,8 +47,6 @@ trait ListHandlerTrait
 
     /**
      * Creates a Processor that handles the current list request.
-     *
-     * @return Processor
      */
     protected function prepareProcessor(array $options = []): Processor
     {
@@ -66,15 +63,11 @@ trait ListHandlerTrait
 
     /**
      * Creates the query builder that will retrieve the results.
-     *
-     * @return QueryBuilder
      */
     abstract protected function prepareQueryBuilder(): QueryBuilder;
 
     /**
      * Returns the callable applied on every result for the current request.
-     *
-     * @return callable
      */
     abstract protected function prepareResultCallable(): callable;
 }

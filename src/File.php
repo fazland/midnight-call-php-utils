@@ -15,9 +15,6 @@ final class File
      * if the file cannot be opened. This function temporary
      * overrides the error handler and throws an exception.
      *
-     * @param string $path
-     * @param string $mode
-     *
      * @return resource
      *
      * @throws IOException
@@ -54,8 +51,6 @@ final class File
      * Renames a file
      * Throws exception on error.
      *
-     * @param string        $oldName
-     * @param string        $newName
      * @param resource|null $context
      *
      * @return resource
@@ -85,11 +80,7 @@ final class File
      * Scans a directory.
      * Throws exception on error.
      *
-     * @param string        $directory
-     * @param int           $sortingOrder
      * @param resource|null $context
-     *
-     * @return array
      *
      * @throws IOException
      */
@@ -118,10 +109,6 @@ final class File
     /**
      * Creates a directory.
      * Throws exception on error.
-     *
-     * @param string $directoryPath
-     * @param bool   $recursive
-     * @param int    $mode
      */
     public static function tryMakeDir(string $directoryPath, bool $recursive = false, int $mode = 0777): void
     {
@@ -139,10 +126,6 @@ final class File
     /**
      * Copies a file.
      * Throws exception on error.
-     *
-     * @param string $source
-     * @param string $destination
-     * @param bool   $overwrite
      */
     public static function tryCopy(string $source, string $destination, bool $overwrite = false): void
     {

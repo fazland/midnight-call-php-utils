@@ -44,14 +44,6 @@ trait HttpFoundationTrait
      * NOTE: This uses data from fixtures
      *
      * @see ClientLoader
-     *
-     * @param string      $clientId
-     * @param string      $clientSecret
-     * @param string      $grantType
-     * @param array       $additionalParams
-     * @param string|null $refreshToken
-     *
-     * @return string
      */
     public function getJwt(
         string $clientId,
@@ -68,10 +60,7 @@ trait HttpFoundationTrait
 
         $response = self::post('/token', $requestData);
         if (! $response->isOk()) {
-            throw new AssertionFailedError(\sprintf(
-                'Error while getting an access token: %s',
-                $response->getContent()
-            ));
+            throw new AssertionFailedError(\sprintf('Error while getting an access token: %s', $response->getContent()));
         }
 
         try {
@@ -86,8 +75,6 @@ trait HttpFoundationTrait
     /**
      * Gets the accept header with the specified version.
      *
-     * @param string $version
-     *
      * @return string[]
      */
     private function getAcceptHeader(string $version): array
@@ -98,8 +85,6 @@ trait HttpFoundationTrait
     /**
      * Gets the merge patch header.
      * If version is specified, also the accept header with that version is returned.
-     *
-     * @param string|null $version
      *
      * @return string[]
      */
@@ -159,13 +144,7 @@ trait HttpFoundationTrait
     /**
      * Performs a request.
      *
-     * @param string      $url
-     * @param string      $method
-     * @param array       $requestData
-     * @param string|null $accessToken
-     * @param array       $additionalHeaders
-     *
-     * @return Response
+     * @param array $requestData
      */
     private static function request(
         string $url,
@@ -205,8 +184,6 @@ trait HttpFoundationTrait
 
     /**
      * Asserts $response is a JSON response.
-     *
-     * @param Response $response
      */
     public static function assertJsonResponse(Response $response): void
     {
@@ -215,9 +192,6 @@ trait HttpFoundationTrait
 
     /**
      * Asserts the array of property names are in JSON response.
-     *
-     * @param Response $response
-     * @param array    $expectedProperties
      */
     public static function assertJsonResponsePropertiesExist(Response $response, array $expectedProperties): void
     {
@@ -241,9 +215,6 @@ trait HttpFoundationTrait
 
     /**
      * Asserts the specific propertyPath is in the JSON response.
-     *
-     * @param Response $response
-     * @param string   $propertyPath
      */
     public static function assertJsonResponsePropertyExists(Response $response, string $propertyPath): void
     {
@@ -255,9 +226,6 @@ trait HttpFoundationTrait
 
     /**
      * Asserts the given property path does *not* exist.
-     *
-     * @param Response $response
-     * @param string   $propertyPath
      */
     public static function assertJsonResponsePropertyDoesNotExist(Response $response, string $propertyPath): void
     {
@@ -270,9 +238,7 @@ trait HttpFoundationTrait
     /**
      * Asserts the response JSON property equals the given value.
      *
-     * @param Response $response
-     * @param string   $propertyPath
-     * @param mixed    $expectedValue
+     * @param mixed $expectedValue
      */
     public static function assertJsonResponsePropertyEquals(Response $response, string $propertyPath, $expectedValue): void
     {
@@ -291,9 +257,6 @@ trait HttpFoundationTrait
 
     /**
      * Asserts the response property is an array.
-     *
-     * @param Response $response
-     * @param string   $propertyPath
      *
      * @throws \Throwable
      */
@@ -321,10 +284,6 @@ trait HttpFoundationTrait
      * 'string'   => true,
      * 'scalar'   => true,
      * 'callable' => true
-     *
-     * @param Response $response
-     * @param string   $propertyPath
-     * @param string   $type
      */
     private static function assertJsonResponsePropertyIsType(Response $response, string $propertyPath, string $type): void
     {
@@ -336,10 +295,6 @@ trait HttpFoundationTrait
 
     /**
      * Asserts the given response property (probably an array) has the expected "count".
-     *
-     * @param Response $response
-     * @param string   $propertyPath
-     * @param int      $expectedCount
      *
      * @throws \Throwable
      */
@@ -353,9 +308,7 @@ trait HttpFoundationTrait
      *
      * e.g. "Hello world!" contains "world"
      *
-     * @param Response $response
-     * @param string   $propertyPath
-     * @param mixed    $expectedValue
+     * @param mixed $expectedValue
      */
     public static function assertJsonResponsePropertyContains(Response $response, string $propertyPath, $expectedValue): void
     {
@@ -384,8 +337,7 @@ trait HttpFoundationTrait
      *
      * This will throw Exception if the value does not exist
      *
-     * @param Response $response
-     * @param string   $propertyPath e.g. firstName, battles[0].programmer.username
+     * @param string $propertyPath e.g. firstName, battles[0].programmer.username
      *
      * @return mixed
      */
@@ -399,11 +351,7 @@ trait HttpFoundationTrait
         } catch (AccessException $e) {
             $values = \is_array($data) ? $data : \get_object_vars($data);
 
-            throw new AssertionFailedError(\sprintf(
-                'Error reading property "%s" from available keys (%s)',
-                $propertyPath,
-                \implode(', ', \array_keys($values))
-            ), 0, $e);
+            throw new AssertionFailedError(\sprintf('Error reading property "%s" from available keys (%s)', $propertyPath, \implode(', ', \array_keys($values))), 0, $e);
         }
     }
 
@@ -497,8 +445,6 @@ trait HttpFoundationTrait
 
     /**
      * Returns a valid property accessor.
-     *
-     * @return PropertyAccessorInterface
      */
     private static function getPropertyAccessor(): PropertyAccessorInterface
     {
@@ -513,11 +459,7 @@ trait HttpFoundationTrait
     /**
      * Builds the expectation message used in response assertions.
      *
-     * @param int|string  $expected
-     * @param int         $statusCode
-     * @param string|null $interval
-     *
-     * @return string
+     * @param int|string $expected
      */
     private static function buildExpectedStatusCodeMessage(
         $expected,

@@ -38,10 +38,7 @@ class UrnToEntityTransformer extends AbstractOneWayDataTransformer
         $this->assertString($value);
 
         if (! \preg_match($this->urnPattern, $value, $matches)) {
-            throw new TransformationFailedException(\sprintf(
-                'The specified value is not a valid urn. The expected format is %s',
-                $this->urnPattern
-            ));
+            throw new TransformationFailedException(\sprintf('The specified value is not a valid urn. The expected format is %s', $this->urnPattern));
         }
 
         $this->assertUuid($matches['id']);
@@ -50,11 +47,7 @@ class UrnToEntityTransformer extends AbstractOneWayDataTransformer
         $entity = $repository->find($matches['id']);
 
         if (null === $entity) {
-            throw new TransformationFailedException(\sprintf(
-                'Could not find the desired %s with ID %s',
-                $this->entityClass,
-                $matches['id']
-            ));
+            throw new TransformationFailedException(\sprintf('Could not find the desired %s with ID %s', $this->entityClass, $matches['id']));
         }
 
         return $entity;

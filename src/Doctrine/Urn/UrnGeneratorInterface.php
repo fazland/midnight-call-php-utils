@@ -6,8 +6,6 @@ interface UrnGeneratorInterface
 {
     /**
      * Gets the urn identifier for this object.
-     *
-     * @return string
      */
     public function getUrn(): string;
 }

@@ -25,10 +25,6 @@ trait DoctrineCommandTrait
 
     /**
      * Generates the '?' query placeholder based on the count of params.
-     *
-     * @param array $params
-     *
-     * @return string
      */
     private function getQueryPlaceholders(array $params): string
     {
@@ -39,11 +35,6 @@ trait DoctrineCommandTrait
 
     /**
      * Fetches all results obtained by querying the select.
-     *
-     * @param string $select
-     * @param array  $params
-     *
-     * @return array
      */
     private function executeSelect(string $select, array $params = []): array
     {
@@ -58,10 +49,6 @@ trait DoctrineCommandTrait
 
     /**
      * Execute the SQL query.
-     *
-     * @param string $sql
-     * @param array  $params
-     * @param array  $types
      */
     private function executeQuery(string $sql, array $params, array $types = []): void
     {
@@ -78,12 +65,6 @@ trait DoctrineCommandTrait
 
     /**
      * Retrieves target id by entity name if exists.
-     *
-     * @param string $tableName
-     * @param string $entityName
-     * @param string $fieldName
-     *
-     * @return string|null
      */
     private function findTargetIdByName(string $tableName, string $entityName, string $fieldName = 'name'): ?string
     {

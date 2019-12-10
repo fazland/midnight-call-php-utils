@@ -8,8 +8,6 @@ trait GroupSequenceProviderTrait
 {
     /**
      * Gets the default validation groups for the current class.
-     *
-     * @return array
      */
     public function getDefaultValidationGroups(): array
     {

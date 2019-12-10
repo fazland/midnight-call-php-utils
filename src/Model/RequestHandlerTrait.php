@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
  * @property FormFactoryInterface $formFactory
  *
  * @method string getTypeClass()
- * @method void commit()
+ * @method void   commit()
  */
 trait RequestHandlerTrait
 {

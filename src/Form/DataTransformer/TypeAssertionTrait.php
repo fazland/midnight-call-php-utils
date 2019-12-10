@@ -51,8 +51,6 @@ trait TypeAssertionTrait
 
     /**
      * Throws a {@see TransformationFailedException} if $value is not a numeric value.
-     *
-     * @param string $value
      */
     public function assertUuid(string $value): void
     {
@@ -67,9 +65,6 @@ trait TypeAssertionTrait
      * Builds the expectation message.
      *
      * @param $value
-     * @param string $expectedType
-     *
-     * @return string
      */
     private function buildExceptionMessage($value, string $expectedType): string
     {
