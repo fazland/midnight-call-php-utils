@@ -10,15 +10,9 @@ trait DoctrineCommandTrait
 {
     use BaseTrait;
 
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
-    /**
-     * @var Connection
-     */
-    private $connection;
+    private Connection $connection;
 
     /**
      * {@inheritdoc}

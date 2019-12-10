@@ -4,6 +4,10 @@ namespace MidnightCall\Utils;
 
 final class Json
 {
+    private function __construct()
+    {
+    }
+
     /**
      * Decodes a JSON string into an object/array.
      *

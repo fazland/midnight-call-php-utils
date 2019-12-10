@@ -17,27 +17,18 @@ class UrnToEntityTransformerTest extends TestCase
     /**
      * @var EntityManagerInterface|ObjectProphecy
      */
-    private $entityManager;
+    private object $entityManager;
 
     /**
      * @var EntityRepository|ObjectProphecy
      */
-    private $entityRepository;
+    private object $entityRepository;
 
-    /**
-     * @var UrnToEntityTransformer
-     */
-    private $transformer;
+    private UrnToEntityTransformer $transformer;
 
-    /**
-     * @var string
-     */
-    private $entityClass;
+    private string $entityClass;
 
-    /**
-     * @var string
-     */
-    private $urnPattern;
+    private string $urnPattern;
 
     /**
      * {@inheritdoc}

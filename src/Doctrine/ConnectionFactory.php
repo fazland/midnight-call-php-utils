@@ -25,16 +25,14 @@ final class ConnectionFactory extends BaseFactory implements ServiceSubscriberIn
      *
      * @var string[]
      */
-    private $enums = [];
+    private array $enums;
 
-    /**
-     * @var BaseFactory
-     */
-    private $factory;
+    private BaseFactory $factory;
 
     public function __construct(BaseFactory $factory)
     {
         $this->factory = $factory;
+        $this->enums = [];
     }
 
     /**

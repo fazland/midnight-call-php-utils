@@ -7,21 +7,10 @@ use Fazland\ApiPlatformBundle\QueryLanguage\Walker\Validation\ValidationWalker;
 
 class UrnWalker extends ValidationWalker
 {
-    /**
-     * @var string
-     */
-    private $urnPattern;
+    private string $urnPattern;
 
-    /**
-     * @var string
-     */
-    private $resourceType;
+    private string $resourceType;
 
-    /**
-     * UrnWalker constructor.
-     *
-     * @param string $resourceType
-     */
     public function __construct(string $urnPattern, string $resourceType)
     {
         $this->urnPattern = $urnPattern;

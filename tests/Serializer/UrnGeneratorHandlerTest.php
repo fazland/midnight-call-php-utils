@@ -12,10 +12,7 @@ use Prophecy\Argument;
 
 class UrnGeneratorHandlerTest extends TestCase
 {
-    /**
-     * @var UrnGeneratorHandler
-     */
-    private $handler;
+    private UrnGeneratorHandler $handler;
 
     /**
      * {@inheritdoc}

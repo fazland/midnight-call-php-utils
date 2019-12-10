@@ -9,10 +9,7 @@ use Symfony\Component\Form\Exception\TransformationFailedException;
 
 class ConstantToEnumTransformerTest extends TestCase
 {
-    /**
-     * @var ConstantToEnumTransformer
-     */
-    private $transformer;
+    private ConstantToEnumTransformer $transformer;
 
     /**
      * {@inheritdoc}

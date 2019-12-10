@@ -20,12 +20,9 @@ final class PreciseMoneyTest extends TestCase
     /**
      * @var Calculator|ObjectProphecy
      */
-    private $calculator;
+    private object $calculator;
 
-    /**
-     * @var PreciseMoney
-     */
-    private $money;
+    private PreciseMoney $money;
 
     protected function setUp(): void
     {
@@ -153,7 +150,6 @@ final class PreciseMoneyTest extends TestCase
         $this->calculator->subtract((string) self::AMOUNT, (string) self::OTHER_AMOUNT)->willReturn((string) $result);
         $money = $this->money->subtract(new PreciseMoney(self::OTHER_AMOUNT, new Currency(self::CURRENCY)));
 
-        self::assertInstanceOf(PreciseMoney::class, $money);
         self::assertEquals((string) $result, $money->getAmount());
     }
 

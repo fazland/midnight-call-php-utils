@@ -4,6 +4,10 @@ namespace MidnightCall\Utils;
 
 final class Base64
 {
+    private function __construct()
+    {
+    }
+
     /**
      * Encodes data to base64.
      * Throws an Exception on failure.

@@ -9,20 +9,11 @@ class UrnToEntityTransformer extends AbstractOneWayDataTransformer
 {
     use TypeAssertionTrait;
 
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
-    /**
-     * @var string
-     */
-    private $entityClass;
+    private string $entityClass;
 
-    /**
-     * @var string
-     */
-    private $urnPattern;
+    private string $urnPattern;
 
     public function __construct(EntityManagerInterface $entityManager, string $entityClass, string $urnPattern)
     {

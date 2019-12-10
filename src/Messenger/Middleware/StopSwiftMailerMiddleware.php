@@ -11,7 +11,7 @@ class StopSwiftMailerMiddleware implements MiddlewareInterface
     /**
      * @var \Swift_Mailer[]
      */
-    private $mailers;
+    private array $mailers;
 
     public function __construct(\Swift_Mailer ...$mailers)
     {

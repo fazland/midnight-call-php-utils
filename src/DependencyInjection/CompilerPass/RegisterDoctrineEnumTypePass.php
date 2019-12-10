@@ -10,10 +10,7 @@ use Symfony\Component\DependencyInjection\Reference;
 
 final class RegisterDoctrineEnumTypePass implements CompilerPassInterface
 {
-    /**
-     * @var string
-     */
-    private $enumTagName;
+    private string $enumTagName;
 
     public function __construct(string $enumTagName)
     {

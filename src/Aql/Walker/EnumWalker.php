@@ -8,10 +8,7 @@ use Fazland\ApiPlatformBundle\QueryLanguage\Walker\Doctrine\DqlWalker;
 
 class EnumWalker extends DqlWalker
 {
-    /**
-     * @var string
-     */
-    private $enumClass;
+    private string $enumClass;
 
     public function __construct(QueryBuilder $queryBuilder, string $field, string $enumClass)
     {

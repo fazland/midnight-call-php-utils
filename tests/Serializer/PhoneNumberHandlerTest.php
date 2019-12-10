@@ -12,10 +12,7 @@ use Prophecy\Argument;
 
 class PhoneNumberHandlerTest extends TestCase
 {
-    /**
-     * @var PhoneNumberHandler
-     */
-    private $handler;
+    private PhoneNumberHandler $handler;
 
     /**
      * {@inheritdoc}

@@ -8,17 +8,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\StyleInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
+/**
+ * @method self addOption(string $name, string|array|null $shortcut = null, int|null $mode = null, string $description = '', string|string[]|int|bool|null $default = null)
+ */
 trait BaseTrait
 {
-    /**
-     * @var SymfonyStyle
-     */
-    private $io;
+    private StyleInterface $io;
 
-    /**
-     * @var bool
-     */
-    private $dryRun;
+    private bool $dryRun;
 
     private function getStyle(InputInterface $input, OutputInterface $output): StyleInterface
     {

@@ -8,14 +8,12 @@ use Fazland\ApiPlatformBundle\QueryLanguage\Walker\Doctrine\DqlWalker;
 
 class UrnToIdWalker extends DqlWalker
 {
-    /**
-     * @var string
-     */
-    private $urnPattern;
+    private string $urnPattern;
 
     public function __construct(QueryBuilder $queryBuilder, string $field, string $urnPattern, string $columnType = 'string')
     {
         parent::__construct($queryBuilder, $field, $columnType);
+
         $this->urnPattern = $urnPattern;
     }
 

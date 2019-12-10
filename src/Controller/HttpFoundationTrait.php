@@ -22,10 +22,8 @@ trait HttpFoundationTrait
 {
     /**
      * The client used in last request.
-     *
-     * @var KernelBrowser
      */
-    private static $client;
+    private static KernelBrowser $client;
 
     /**
      * Creates a Client.

@@ -8,10 +8,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class Client extends SentrySymfonyClient
 {
-    /**
-     * @var RequestStack
-     */
-    private $requestStack;
+    private ?RequestStack $requestStack;
 
     /**
      * @param RequestStack $requestStack
@@ -26,6 +23,10 @@ class Client extends SentrySymfonyClient
      */
     protected function get_http_data(): array
     {
+        if (null === $this->requestStack) {
+            return [];
+        }
+
         $currentRequest = $this->requestStack->getCurrentRequest();
         if (! $currentRequest instanceof Request) {
             return parent::get_http_data();

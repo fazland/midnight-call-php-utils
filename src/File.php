@@ -6,7 +6,6 @@ use MidnightCall\Utils\Exception\IOException;
 
 final class File
 {
-    // Cannot instantiate this class
     private function __construct()
     {
     }

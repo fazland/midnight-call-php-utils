@@ -9,10 +9,7 @@ class ConstantToEnumTransformer extends AbstractOneWayDataTransformer
 {
     use TypeAssertionTrait;
 
-    /**
-     * @var string
-     */
-    private $enumClass;
+    private string $enumClass;
 
     public function __construct(string $enumClass)
     {

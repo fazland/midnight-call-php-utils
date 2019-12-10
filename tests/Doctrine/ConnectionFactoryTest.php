@@ -16,19 +16,16 @@ use Prophecy\Prophecy\ObjectProphecy;
 class ConnectionFactoryTest extends TestCase
 {
     /**
-     * @var ConnectionFactory
-     */
-    private $factory;
-
-    /**
      * @var BaseFactory|ObjectProphecy
      */
-    private $baseFactory;
+    private object $baseFactory;
 
     /**
      * @var Connection|ObjectProphecy
      */
-    private $connection;
+    private object $connection;
+
+    private ConnectionFactory $factory;
 
     /**
      * {@inheritdoc}
@@ -37,9 +34,7 @@ class ConnectionFactoryTest extends TestCase
     {
         $this->baseFactory = $this->prophesize(BaseFactory::class);
         $this->connection = $this->prophesize(Connection::class);
-        $this->baseFactory->createConnection(Argument::cetera())
-            ->willReturn($this->connection)
-        ;
+        $this->baseFactory->createConnection(Argument::cetera())->willReturn($this->connection);
 
         $this->factory = new ConnectionFactory($this->baseFactory->reveal());
     }
