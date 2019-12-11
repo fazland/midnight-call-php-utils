@@ -23,7 +23,7 @@
         "myclabs/php-enum": "^1.7",
         "ramsey/uuid-doctrine": "^1.5",
         "sensio/framework-extra-bundle": "^5.2",
-        "sentry/sentry-symfony": "^2.3",
+        "sentry/sentry-symfony": "^3.0",
         "symfony/console": "*",
         "symfony/expression-language": "*",
         "symfony/flex": "^1.1",
