@@ -50,7 +50,7 @@ trait ListHandlerTrait
      */
     protected function prepareProcessor(array $options = []): Processor
     {
-        return new Processor($this->prepareQueryBuilder(), $this->formFactory, \array_merge($options, [
+        return new Processor($this->prepareQueryBuilder(), $this->formFactory, \array_merge([
             'order_field' => 'order',
             'skip_field' => 'skip',
             'limit_field' => 'limit',
@@ -58,7 +58,7 @@ trait ListHandlerTrait
                 'field' => 'continue',
                 'checksum_field' => '_id',
             ],
-        ]));
+        ], $options));
     }
 
     /**
